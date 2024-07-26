@@ -1,0 +1,186 @@
+<div class="col-12">
+  <header class="form-header">
+    <h1><b>Registration Form</b></h1>
+  </header>
+  <form class="example-form" [formGroup]="registrationForm">
+    <div class="row form-row col-12">
+      <div class="col-12 col-md-6" style="width: 36rem">
+        <mat-form-field class="example-full-width">
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            placeholder="First Name"
+            formControlName="firstname"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-12 col-md-6" style="width: 36rem">
+        <mat-form-field class="example-full-width">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Last Name" formControlName="lastname" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row form-row col-12">
+      <div class="col-12 col-md-6" style="width: 36rem">
+        <mat-form-field class="example-full-width">
+          <mat-label>Address </mat-label>
+          <input matInput placeholder="First Name" formControlName="address" />
+        </mat-form-field>
+      </div>
+      <div class="col-12 col-md-6" style="width: 36rem">
+        <mat-form-field class="example-full-width">
+          <mat-label>Qualification</mat-label>
+          <mat-select formControlName="qualification">
+            <mat-option
+              *ngFor="let qualify of qualificationList"
+              [value]="qualify.qualificationId"
+            >
+              {{ qualify.qualification }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row form-row col-12">
+      <div class="col-6">
+        <div class="col-12" style="width: 36rem">
+          <mat-form-field class="example-full-width">
+            <mat-label>Current Company</mat-label>
+            <input
+              matInput
+              placeholder="First Name"
+              formControlName="currentC"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="col-6" formArrayName="previousCompany">
+        <div
+          class="col-12"
+          style="display: flex"
+          *ngFor="let prev of previousCompany.controls; let i = index"
+          [formGroupName]="i"
+        >
+          <div class="col-4 mr-1">
+            <mat-form-field class="example-full-width">
+              <mat-label>previous Company</mat-label>
+              <input
+                matInput
+                placeholder="Previous Company"
+                formControlName="previousC"
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-4">
+            <mat-form-field>
+              <mat-label>Choose a date</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                formControlName="previousDate"
+              />
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <button mat-button color="primary" (click)="onAdd()">Previous Company</button>
+      </div>
+    </div>
+
+    <div class="row col-12 button-row">
+      <div class="col-12">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="submit(this.registrationForm.value)"
+        >
+          {{ this.buttonLabel }}
+        </button>
+      </div>
+      <div class="col-12">
+        <button mat-raised-button color="warn">Reset</button>
+      </div>
+    </div>
+
+    {{ registrationForm.value | json }}
+  </form>
+</div>
+
+<div class="col-12">
+  <header class="form-header">
+    <h1><b>List</b></h1>
+  </header>
+</div>
+
+<div class="col-12">
+  <table class="table table-bordered w-100">
+    <thead>
+      <tr>
+        <th>SI No</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Qualification</th>
+        <th>Current Company</th>
+        <th>Previous Company</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let emp of employeeData; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>
+          {{
+            (emp.firstName ? emp.firstName : " ") +
+              " " +
+              (emp.lastName ? emp.lastName : " ")
+          }}
+        </td>
+
+        <td>{{ emp.address }}</td>
+        <td>{{ emp.qualification }}</td>
+        <td>{{ emp.currentCompny }}</td>
+        <td><div *ngFor="let company of emp.previousCompanies">
+          <b>Company Name</b><div>{{company.companyName}}</div>
+          <b>Period</b><div>{{company.companyDate| date}}</div>
+        </div></td>
+        <td>
+          <div
+            class="button-container"
+            style="display: flex; gap: 8px; align-items: center"
+          >
+            <button
+              mat-fab
+              color="primary"
+              style="width: 2rem; height: 2rem"
+              aria-label="Delete"
+              (click)="deleteEmp(emp.id)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button
+              mat-fab
+              color="warn"
+              style="width: 2rem; height: 2rem"
+              aria-label="Add"
+              (click)="onEdit(emp)"
+            >
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

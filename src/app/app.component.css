@@ -1,0 +1,38 @@
+.form-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-container {
+  padding: 0 20px; /* Adds padding to the left and right */
+}
+
+.form-row {
+  display: flex;
+  justify-content: center; /* Ensures fields are spaced evenly */
+}
+
+
+
+.col-md-6 {
+  padding: 0 10px; /* Adds padding to left and right of each column */
+}
+
+.example-form {
+  min-width: 150px;
+
+}
+
+.example-full-width {
+  width: 100%;
+
+}
+.button-row{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+
+}
+table {
+  width: 100%;
+}

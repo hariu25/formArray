@@ -1,0 +1,34 @@
+{
+  "data":[
+    {
+      "qualificationId": 1,
+        "qualification":"Mca"
+    },
+    {
+      "qualificationId": 2,
+        "qualification":"Mechanical"
+    },
+    {
+      "qualificationId": 3,
+        "qualification":"Civil"
+    },
+    {
+      "qualificationId": 4,
+        "qualification":"Computer Science"
+    },
+    {
+      "qualificationId": 5,
+        "qualification":"Electrical"
+    },
+    {
+      "qualificationId": 6,
+        "qualification":"Electronics"
+    },
+    {
+      "qualificationId": 7,
+        "qualification":"Mba"
+    }
+
+
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "firstName": "Hari",
+      "lastName": "U",
+      "address": "Vellangattu Mullavath Ambalathumbhagom p.o poruvazhy",
+      "qualification": 4,
+      "currentCompny": "Oriysis Academy",
+      "previousCompny": "Oriysis Academy"
+    },
+    {
+      "id": 2,
+      "firstName": "Harikrishnan",
+      "lastName": "U",
+      "address": "Vellangattu Mullavath Ambalathumbhagom p.o poruvazhy",
+      "qualification": 3,
+      "currentCompny": "Nurac",
+      "previousCompny": "IndustryApps"
+    },
+    {
+      "id": 3,
+      "firstName": "Hari",
+      "lastName": "U",
+      "address": "Vellangattu Mullavath Ambalathumbhagom p.o poruvazhy",
+      "qualification": 2,
+      "currentCompny": "Oriysis Academy",
+      "previousCompanies": [
+        {
+          "companyName": "nurac company",
+          "companyDate": "2024-07-16T18:30:00.000Z"
+        }
+      ]
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
